@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Book List</title>
+</head>
+<body>
+<h2>Book List</h2>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Action</th>
+  </tr>
+  <tr th:each="book : ${books}">
+    <td th:text="${book.id}"></td>
+    <td th:text="${book.title}"></td>
+    <td>
+      <div class="actions">
+        <a class="edit" th:href="@{/Book/update/{id}(id=${book.id})}">Edit</a>
+        <a class="delete" th:href="@{/Book/delete/{id}(id=${book.id})}">Delete</a>
+      </div>
+    </td>
+  </tr>
+</table>
+<a class="create-link" href="/Book/create">Create New Book</a>
+</body>
+</html>

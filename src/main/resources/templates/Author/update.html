@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Update Author</title>
+</head>
+<body>
+<h2>Update Author</h2>
+<form th:action="@{/Author/update/{id}(id=${author.id})}" th:object="${author}" method="post">
+  <label>Name:</label>
+  <input type="text" th:field="*{name}" required/>
+  <br/>
+  <button type="submit">Update</button>
+</form>
+<a class="back-link" href="/Author/list">Back to Author List</a>
+</body>
+</html>

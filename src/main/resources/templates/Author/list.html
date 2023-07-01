@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Author List</title>
+</head>
+<body>
+<h2>Author List</h2>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Action</th>
+  </tr>
+  <tr th:each="author : ${authors}">
+    <td th:text="${author.id}"></td>
+    <td th:text="${author.name}"></td>
+    <td>
+      <div class="actions">
+        <a class="edit" th:href="@{/Author/update/{id}(id=${author.id})}">Edit</a>
+        <a class="delete" th:href="@{/Author/delete/{id}(id=${author.id})}">Delete</a>
+      </div>
+    </td>
+  </tr>
+</table>
+<a class="create-link" href="/Author/create">Create New Author</a>
+</body>
+</html>

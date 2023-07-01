@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete</title>
+</head>
+<body>
+<h2>Delete Author</h2>
+<form th:action="@{/Author/delete/{id}(id=${author.id})}" method="post">
+    <label>ID: </label>
+    <input type="number" name="id" required>
+    <br/>
+    <button type="submit">Delete</button>
+</form>
+<a href="/Author/list">Show Author List</a>
+</body>
+</html>
