@@ -6,9 +6,9 @@
 </head>
 <body>
 <h2>Delete Author</h2>
-<form th:action="@{/Author/delete/{id}(id=${author.id})}" method="post">
+<form th:action="@{/Author/delete/{id}(id=${author.id})}" th:object="${author}" method="post">
     <label>ID: </label>
-    <input type="number" name="id" required>
+    <input type="number" th:field="*{id}" required>
     <br/>
     <button type="submit">Delete</button>
 </form>

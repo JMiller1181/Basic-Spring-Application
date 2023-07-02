@@ -54,9 +54,13 @@ public class AuthorController {
         }
         return "redirect:/Author/list";
     }
-    @GetMapping("/delete")
-    public String deletePage(Model model){
-        model.addAttribute("author", new Author());
+    @GetMapping("/delete/{id}")
+    public String deletePage(@PathVariable("id") Long id, Model model){
+        Optional<Author> foundAuthor = repository.findById(id);
+        if (foundAuthor.isPresent()) {
+            Author author = foundAuthor.get();
+            model.addAttribute("author", author);
+        }
         return "Author/delete";
     }
     @PostMapping("/delete/{id}")

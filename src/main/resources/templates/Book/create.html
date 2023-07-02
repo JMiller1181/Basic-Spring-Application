@@ -5,12 +5,12 @@
 </head>
 <body>
 <h2>Create Book</h2>
-<form th:action="@{/Book/create}" method="post">
+<form th:action="@{/Book/create}" th:object="${book}" method="post">
     <label>Title: </label>
-    <input type="text" name="title" required/>
+    <input type="text" th:field="*{title}" required/>
     <br/>
     <label>Author: </label>
-    <input type="text" name="author" required/>
+    <input type="text" th:field="*{author.name}" required/>
     <br/>
     <button type="submit">Create</button>
 </form>
